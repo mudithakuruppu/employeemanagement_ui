@@ -1,12 +1,12 @@
-import App from './App.tsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import { Header } from './components/Header';
 import { EmployeeList } from './components/EmployeeList';
 import { EmployeeForm } from './components/EmployeeForm';
 import { ReportGenerator } from './components/ReportGenerator';
-export function App() {
-  return <Router>
+export default function App() {
+  return (
+    <Router>
       <div className="min-h-screen bg-gray-50">
         <Toaster position="top-right" />
         <Header />
@@ -19,5 +19,6 @@ export function App() {
           </Routes>
         </main>
       </div>
-    </Router>;
+    </Router>
+  );
 }

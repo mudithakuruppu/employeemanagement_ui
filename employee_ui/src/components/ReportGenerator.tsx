@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
 import { toast } from 'sonner';
-import { useReactToPrint } from 'react-to-print';
 import { FileTextIcon, DownloadIcon, PrinterIcon, BarChartIcon, PieChartIcon } from 'lucide-react';
 import { api } from '../services/api';
 import { Employee, Department } from '../types/employee';
@@ -26,11 +25,12 @@ export const ReportGenerator = () => {
       setLoading(false);
     }
   };
-  const handlePrint = useReactToPrint({
-    content: () => reportRef.current,
-    documentTitle: `Employee Report - ${new Date().toLocaleDateString()}`,
-    onAfterPrint: () => toast.success('Report printed successfully')
-  });
+  const handlePrint = () => {
+    if (reportRef.current) {
+      window.print();
+      toast.success('Report printed successfully');
+    }
+  };
   const handleExportCSV = () => {
     const filteredData = getFilteredEmployees();
     // Create CSV headers
