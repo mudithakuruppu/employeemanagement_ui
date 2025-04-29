@@ -61,7 +61,7 @@ export const ReportGenerator = () => {
     // Filter by date range
     if (dateRange !== 'all') {
       const now = new Date();
-      let cutoffDate = new Date();
+      const cutoffDate = new Date();
       switch (dateRange) {
         case 'month':
           cutoffDate.setMonth(now.getMonth() - 1);
