@@ -1,4 +1,4 @@
-
+import App from './App.tsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import { Header } from './components/Header';
